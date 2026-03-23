@@ -34,7 +34,7 @@ async function sendTestEmail() {
   // Mock parsed applicant data
   const applicant = {
     fullName: "Ellani Walker",
-    email: "rvsanchez255@@gmail.com",
+    email: "rvsanchez255@gmail.com",
     phoneNumber: "123-456-7890",
     address: "123 Main St",
     state: "TX",
@@ -103,9 +103,9 @@ async function sendTestEmail() {
   );
 
   try {
-    await resend.emails.send({
+    const response = await resend.emails.send({
       to: applicant.email,
-      from: "hello@corekeyrealty.com",
+      from: "onboarding@resend.dev",
       subject: `✅ Welcome to CoreKey Realty, ${applicant.fullName}!`,
       html,
       attachments: [
@@ -116,7 +116,16 @@ async function sendTestEmail() {
       ],
     });
 
-    console.log(`Email sent to ${applicant.fullName} (${applicant.email})`);
+    console.log("-----------------------------------------");
+    console.log("Resend API Full Response:");
+    console.dir(response, { depth: null, colors: true });
+    console.log("-----------------------------------------");
+
+    if (response.error) {
+      console.error("Resend returned an error directly in response payload:", response.error);
+    } else {
+      console.log(`Email sent successfully to ${applicant.fullName} (${applicant.email})`);
+    }
   } catch (err) {
     console.error("Error sending email:", err);
   }
