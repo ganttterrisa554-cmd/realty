@@ -10,7 +10,7 @@ import {
 } from "pdf-lib";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY2);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Enhanced color palette
 const COLORS = {

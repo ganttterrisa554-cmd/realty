@@ -319,7 +319,7 @@ export async function sendBulkEmails({
     return { success: false, message: "Phone number is required." };
   }
 
-  const resend = new Resend(process.env.RESEND_API_KEY2);
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   // Your sender must be a verified domain address in Resend.
   const fromEmail = "careers@admin.corekeyrealty.com";

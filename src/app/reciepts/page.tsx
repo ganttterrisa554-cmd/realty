@@ -204,7 +204,7 @@ export default function ReceiptsPage() {
               </div>
             </div>
             
-            <div className="mt-6">
+            <div className="mt-6 space-y-3">
               <Button onClick={handleSendEmail} className="w-full h-12 text-md font-semibold" disabled={!formData.amount || !formData.tenantName || !formData.tenantEmail || isSending}>
                 {isSending ? (
                   <RefreshCw className="w-5 h-5 mr-2 animate-spin" />
@@ -212,6 +212,14 @@ export default function ReceiptsPage() {
                   <Send className="w-5 h-5 mr-2" />
                 )}
                 {isSending ? "Sending Receipt..." : "Send Receipt to Tenant"}
+              </Button>
+              <Button 
+                onClick={downloadPDF} 
+                className="w-full h-12 text-md font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-md transition-all active:scale-[0.98]"
+                disabled={!formData.amount || !formData.tenantName}
+              >
+                <Download className="w-5 h-5 mr-3" />
+                Download Official PDF
               </Button>
             </div>
           </CardContent>
@@ -225,26 +233,76 @@ export default function ReceiptsPage() {
           className="bg-[#ffffff] w-[500px] sm:w-[600px] max-w-none shrink-0 p-6 sm:p-10 relative overflow-hidden text-[#1f2937] mx-auto"
           style={{
             boxShadow: "0 10px 40px rgba(0,0,0,0.1)",
-            fontFamily: "'Courier New', Courier, monospace", // classic receipt vibe
+            fontFamily: "'Courier New', Courier, monospace",
           }}
         >
+          {/* Background Watermark */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden select-none opacity-[0.03]">
+            <div className="text-[120px] font-black uppercase -rotate-45 whitespace-nowrap text-[#111827]">
+              OFFICIAL DOCUMENT
+            </div>
+          </div>
+
           {/* Subtle background texture array */}
           <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '15px 15px' }} />
 
-          {/* Date Stamp */}
+          {/* Corner Badge */}
+          <div className="absolute top-4 right-4 bg-[#1e40af] text-white text-[8px] font-bold px-2 py-1 rounded uppercase tracking-tighter opacity-80 z-20">
+            Certified Original
+          </div>
+
+          {/* Busy Professional Stamp */}
           {(formData.amount && formData.tenantName) ? (
             <div 
-              className="absolute top-[30%] left-[50%] sm:left-[60%] -translate-x-1/2 -translate-y-1/2 pointer-events-none transform -rotate-[15deg] flex flex-col items-center justify-center border-[6px] border-double border-[#dc2626] rounded-full w-48 h-48 sm:w-56 sm:h-56 z-10 mix-blend-multiply opacity-50"
+              className="absolute top-[35%] left-[55%] -translate-x-1/2 -translate-y-1/2 pointer-events-none transform -rotate-[12deg] z-10 mix-blend-multiply opacity-60"
             >
-              <div className="text-[#dc2626] font-serif text-2xl tracking-widest uppercase mt-4">
-                RECEIVED
-              </div>
-              <div className="text-[#dc2626] font-mono font-bold text-lg tracking-[0.2em] mt-3 border-t-2 border-b-2 border-[#dc2626] py-1 px-4 relative">
-                {formData.date ? new Date(formData.date).toLocaleDateString() : "____/____/____"}
-              </div>
-              <div className="text-[#dc2626] font-sans text-xs font-bold tracking-widest uppercase mt-3">
-                INVITATION HOMES
-              </div>
+              <svg width="220" height="220" viewBox="0 0 220 220" className="drop-shadow-sm">
+                {/* Distressed Effect Filter */}
+                <defs>
+                  <filter id="distress">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" seed="1" result="noise" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" />
+                  </filter>
+                </defs>
+                
+                <g filter="url(#distress)">
+                  {/* Outer Circles */}
+                  <circle cx="110" cy="110" r="100" fill="none" stroke="#dc2626" strokeWidth="2" strokeDasharray="4 2" />
+                  <circle cx="110" cy="110" r="94" fill="none" stroke="#dc2626" strokeWidth="4" />
+                  <circle cx="110" cy="110" r="75" fill="none" stroke="#dc2626" strokeWidth="1" />
+                  
+                  {/* Curved Text */}
+                  <path id="curve" d="M 30, 110 A 80,80 0 1,1 190,110" fill="none" />
+                  <text className="fill-[#dc2626] font-sans text-[10px] font-bold uppercase tracking-widest">
+                    <textPath href="#curve" startOffset="50%" textAnchor="middle">
+                      Official Property Management Division
+                    </textPath>
+                  </text>
+                  
+                  <path id="curveBottom" d="M 30, 110 A 80,80 0 0,0 190,110" fill="none" />
+                  <text className="fill-[#dc2626] font-sans text-[10px] font-bold uppercase tracking-widest">
+                    <textPath href="#curveBottom" startOffset="50%" textAnchor="middle">
+                      • Invitation Homes Verified •
+                    </textPath>
+                  </text>
+
+                  {/* Center Text Section */}
+                  <rect x="40" y="95" width="140" height="30" fill="none" stroke="#dc2626" strokeWidth="2" />
+                  <text x="110" y="85" textAnchor="middle" className="fill-[#dc2626] font-serif text-2xl font-black uppercase tracking-tighter">
+                    RECEIVED
+                  </text>
+                  <text x="110" y="116" textAnchor="middle" className="fill-[#dc2626] font-mono text-sm font-bold">
+                    {formData.date ? new Date(formData.date).toLocaleDateString() : "____/____/____"}
+                  </text>
+                  <text x="110" y="145" textAnchor="middle" className="fill-[#dc2626] font-sans text-[9px] font-bold uppercase">
+                    Transaction ID: {(formData.paymentId || "VH-882").substring(0,8)}
+                  </text>
+                  
+                  {/* Small Seal */}
+                  <circle cx="110" cy="165" r="15" fill="none" stroke="#dc2626" strokeWidth="1" strokeDasharray="2 1" />
+                  <text x="110" y="169" textAnchor="middle" className="fill-[#dc2626] font-sans text-[8px] font-bold">OK</text>
+                </g>
+              </svg>
             </div>
           ) : null}
 

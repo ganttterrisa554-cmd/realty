@@ -3,7 +3,8 @@
 import { Resend } from "resend";
 import { z } from "zod";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const cleanKey = (process.env.RESEND_API_KEY || "").replace(/['"]+/g, '').trim();
+const resend = new Resend(cleanKey);
 
 function buildEmailTemplate(htmlContent: string) {
   return `
@@ -249,8 +250,12 @@ export async function sendMessage(formData: FormData) {
       html: finalHtml,
     });
 
-    console.log("✅ Email sent successfully");
-    console.log("✅ Resend response:", response);
+    if (response.error) {
+       console.error("❌ Resend API Error:", response.error);
+       return { message: "Failed to send message", error: response.error.message };
+    }
+
+    console.log("✅ Email sent successfully", response);
 
     return { message: "Message sent successfully", data: response };
   } catch (error) {

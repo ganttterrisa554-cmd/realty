@@ -4,7 +4,9 @@ import fs from "fs";
 import path from "path";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const rawKey = process.env.RESEND_API_KEY || "";
+const cleanKey = rawKey.replace(/['"]+/g, '').trim();
+const resend = new Resend(cleanKey);
 
 export async function sendReceiptEmail(
   tenantEmail: string,
@@ -14,6 +16,14 @@ export async function sendReceiptEmail(
   fileName: string
 ): Promise<{ success: boolean; error?: string }> {
   try {
+    console.log("📨 Attempting to send receipt email:", {
+      tenantEmail,
+      tenantName,
+      receiptType,
+      fileName,
+      pdfSize: pdfBase64 ? `${(pdfBase64.length * 0.75 / 1024).toFixed(2)} KB` : "0 KB"
+    });
+
     // Generate the absolute URL to your deployed app where the image is hosted
     // (e.g. from Vercel env variables, or localhost during development)
     const baseUrl = process.env.NEXT_PUBLIC_APP_URL 
@@ -21,6 +31,7 @@ export async function sendReceiptEmail(
     
     // This points cleanly to C:\...\public\invitation-home.png 
     const logoUrl = `${baseUrl}/invitation-home.png`;
+    console.log("🔗 Logo URL:", logoUrl);
 
     const html = `
       <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background-color: #f9fafb; border-radius: 8px;">
@@ -54,17 +65,25 @@ export async function sendReceiptEmail(
       },
     ];
 
-    await resend.emails.send({
-      from: "Invitation Homes <reciepts@corekeyrealty.com>",
+    console.log("📤 Dispatching email via Resend…");
+    const response = await resend.emails.send({
+      from: `Invitation Homes <${process.env.FROM_EMAIL || "noreply@corekeyrealty.com"}>`,
       to: tenantEmail,
       subject: `Your Invitation Homes Receipt - ${receiptType}`,
       html,
       attachments,
     });
 
+    if (response.error) {
+       console.error("❌ Resend API Error:", response.error);
+       return { success: false, error: response.error.message };
+    }
+
+    console.log("✅ Receipt email sent successfully!", response);
+
     return { success: true };
   } catch (error) {
-    console.error("Error sending receipt email:", error);
+    console.error("🔥 Error sending receipt email (top-level catch):", error);
     return { success: false, error: "Failed to send email. Check API key or domain limits." };
   }
 }

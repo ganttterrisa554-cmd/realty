@@ -1,4 +1,5 @@
 // app/admin/tokens/page.tsx
+export const dynamic = "force-dynamic";
 import { createToken } from "@/actions";
 import { getAllTokens } from "@/actions";
 import { Button } from "@/components/ui/button";

@@ -85,7 +85,8 @@ export async function sendEmailToApplicant(
   </div>
 `;
 
-  const resend = new Resend(process.env.RESEND_API_KEY); // replace with your API key
+  const cleanKey = (process.env.RESEND_API_KEY || "").replace(/['"]+/g, '').trim();
+  const resend = new Resend(cleanKey);
   try {
     await resend.emails.send({
       to: applicant.email,

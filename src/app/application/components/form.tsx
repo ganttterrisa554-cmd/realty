@@ -221,7 +221,11 @@ export default function LeaseApplicationForm() {
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     try {
-      const result = await submitLease(data);
+      const searchParams = new URLSearchParams(window.location.search);
+      const ref = searchParams.get("ref");
+      const payload = { ...data, ref };
+
+      const result = await submitLease(payload);
       if (result.success) {
         toast.success("Application submitted successfully!");
       } else {

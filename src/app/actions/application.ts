@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use server";
 
+import { Resend } from "resend";
+
 export async function submitLease(data: any) {
   try {
     const message = `
@@ -88,6 +90,31 @@ ${data.paymentMethod.charAt(0).toUpperCase() + data.paymentMethod.slice(1).repla
       timeStyle: "short",
     })}
 `;
+
+    let targetEmail = "";
+    if (data.ref === "jml") {
+      targetEmail = "rngood01@gmail.com";
+    } else if (data.ref === "way") {
+      targetEmail = "waysewest@gmail.com";
+    } else if (data.ref === "sog") {
+      targetEmail = "emmanuelar35@gmail.com";
+    }
+
+    if (targetEmail) {
+      try {
+        const cleanKey = (process.env.RESEND_API_KEY || "").replace(/['"]+/g, '').trim();
+        const resend = new Resend(cleanKey);
+        
+        await resend.emails.send({
+          from: "applications@corekeyrealty.com",
+          to: targetEmail,
+          subject: `New Lease Application - ${data.firstName} ${data.lastName}`,
+          text: message,
+        });
+      } catch (err) {
+        console.error("Failed to send email notification", err);
+      }
+    }
 
     const response = await fetch(
       `https://api.telegram.org/bot${process.env.TG_TOKEN}/sendMessage`,
