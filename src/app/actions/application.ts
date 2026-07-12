@@ -92,22 +92,24 @@ ${data.paymentMethod.split('_').map((word: string) => word.charAt(0).toUpperCase
 `;
 
     let targetEmails: string[] = [];
-    if (data.ref === "jml") {
+    if (data.ref === "jm") {
       targetEmails.push("rngood01@gmail.com");
-    } else if (data.ref === "way") {
+    } else if (data.ref === "wy") {
       targetEmails.push("waysewest@gmail.com");
-    } else if (data.ref === "sog") {
+    } else if (data.ref === "sg") {
       targetEmails.push("emmanuelar35@gmail.com");
-    } else if (data.ref === "dcblues") {
+    } else if (data.ref === "dc") {
       targetEmails.push("Dcblues54@gmail.com");
-    } else if (data.ref === "ballnogo") {
+    } else if (data.ref === "bl") {
       targetEmails.push("ballnogo234@outlook.com");
-    } else if (data.ref === "gurrie") {
+    } else if (data.ref === "gu") {
       targetEmails.push("Gurrieanthony@gmail.com");
-    } else if (data.ref === "gray50") {
+    } else if (data.ref === "gy") {
       targetEmails.push("Gray50585@gmail.com");
-    } else if (data.ref === "jemjimk") {
+    } else if (data.ref === "jk") {
       targetEmails.push("jemjimk2510@gmail.com");
+    } else if (data.ref === "ha") {
+      targetEmails.push("hall969101@gmail.com");
     }
 
     if (targetEmails.length > 0) {
