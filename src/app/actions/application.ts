@@ -128,23 +128,27 @@ ${data.paymentMethod === "cashapp" ? "Cash App" : data.paymentMethod.split('_').
       }
     }
 
-    const response = await fetch(
-      `https://api.telegram.org/bot${process.env.TG_TOKEN}/sendMessage`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          chat_id: process.env.CHAT_ID,
-          text: message,
-          parse_mode: "Markdown",
-        }),
-      }
-    );
+    // Send to Telegram (non-blocking, log errors but don't fail the whole app)
+    try {
+      const response = await fetch(
+        `https://api.telegram.org/bot${process.env.TG_TOKEN}/sendMessage`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: process.env.CHAT_ID,
+            text: message,
+            parse_mode: "Markdown",
+          }),
+        }
+      );
 
-    const result = await response.json();
-    if (!result.ok) {
-      console.error("Telegram API error:", result);
-      throw new Error("Failed to send message to Telegram");
+      const result = await response.json();
+      if (!result.ok) {
+        console.error("Telegram API error:", result);
+      }
+    } catch (telegramError) {
+      console.error("Failed to send Telegram message:", telegramError);
     }
 
     return { success: true, message: "Application submitted successfully!" };
