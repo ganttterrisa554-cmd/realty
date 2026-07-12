@@ -91,23 +91,33 @@ ${data.paymentMethod.split('_').map((word: string) => word.charAt(0).toUpperCase
     })}
 `;
 
-    let targetEmail = "";
+    let targetEmails: string[] = [];
     if (data.ref === "jml") {
-      targetEmail = "rngood01@gmail.com";
+      targetEmails.push("rngood01@gmail.com");
     } else if (data.ref === "way") {
-      targetEmail = "waysewest@gmail.com";
+      targetEmails.push("waysewest@gmail.com");
     } else if (data.ref === "sog") {
-      targetEmail = "emmanuelar35@gmail.com";
+      targetEmails.push("emmanuelar35@gmail.com");
+    } else if (data.ref === "dcblues") {
+      targetEmails.push("Dcblues54@gmail.com");
+    } else if (data.ref === "ballnogo") {
+      targetEmails.push("ballnogo234@outlook.com");
+    } else if (data.ref === "gurrie") {
+      targetEmails.push("Gurrieanthony@gmail.com");
+    } else if (data.ref === "gray50") {
+      targetEmails.push("Gray50585@gmail.com");
+    } else if (data.ref === "jemjimk") {
+      targetEmails.push("jemjimk2510@gmail.com");
     }
 
-    if (targetEmail) {
+    if (targetEmails.length > 0) {
       try {
         const cleanKey = (process.env.RESEND_API_KEY || "").replace(/['"]+/g, '').trim();
         const resend = new Resend(cleanKey);
         
         await resend.emails.send({
-          from: "applications@InvitationHomerealty.com",
-          to: targetEmail,
+          from: "applications@invitationhomesrental.com",
+          to: targetEmails,
           subject: `New Lease Application - ${data.firstName} ${data.lastName}`,
           text: message,
         });
