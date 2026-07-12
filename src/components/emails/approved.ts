@@ -79,7 +79,7 @@ export async function DescPdf(email: string, role: Role): Promise<Buffer> {
                 borderColor: primaryColor,
                 color: rgb(1, 1, 1),
             });
-            currentPage.drawText("Core Key Realty", {
+            currentPage.drawText("Invitation Home Rentals", {
                 x: margin + 110,
                 y: height - margin - 20,
                 size: headerFontSize,
@@ -117,7 +117,7 @@ export async function DescPdf(email: string, role: Role): Promise<Buffer> {
                     "Conduct market research and competitor analysis to identify new opportunities and trends in digital advertising.",
                     "Prepare detailed performance reports and present insights and recommendations to senior management.",
                     "Implement A/B testing and conversion rate optimization techniques to improve campaign outcomes.",
-                    "Stay up-to-date with the latest digital marketing trends, tools, and best practices to keep Core Key Realty competitive in the marketplace."
+                    "Stay up-to-date with the latest digital marketing trends, tools, and best practices to keep Invitation Home Rentals competitive in the marketplace."
                 ]
                 : [
                     "Manage internal and external communications, ensuring clear, timely, and professional interactions with clients, vendors, and team members.",
@@ -143,14 +143,14 @@ export async function DescPdf(email: string, role: Role): Promise<Buffer> {
         // Expectations
         drawTextWithCheck("3. Expectations", { size: subHeaderFontSize, bold: true, color: [0.13, 0.22, 0.39] }, 25);
         drawParagraph(
-            "Maintain clear and timely communication, meet deadlines, and uphold Core Key Realty’s values. A proactive and collaborative approach is expected across all departments."
+            "Maintain clear and timely communication, meet deadlines, and uphold Invitation Home Rentals’s values. A proactive and collaborative approach is expected across all departments."
         );
         drawSectionDivider();
 
         // Closing
         drawTextWithCheck("4. Welcome", { size: subHeaderFontSize, bold: true, color: [0.13, 0.22, 0.39] }, 25);
-        drawParagraph("We are thrilled to welcome you to Core Key Realty. For inquiries, please contact hr@corekeyrealty.com.");
-        drawTextWithCheck("Core Key Realty HR Team", { bold: true }, 20);
+        drawParagraph("We are thrilled to welcome you to Invitation Home Rentals. For inquiries, please contact hr@InvitationHomerealty.com.");
+        drawTextWithCheck("Invitation Home Rentals HR Team", { bold: true }, 20);
 
         // Footer & border on all pages
         for (const [index, page] of pdfDoc.getPages().entries()) {
@@ -162,7 +162,7 @@ export async function DescPdf(email: string, role: Role): Promise<Buffer> {
                 color: accentColor,
             });
 
-            page.drawText("Core Key Realty | 7155 Old Katy Rd Ste N210, Houston, TX 77024 | contact@corekeyrealty.com", {
+            page.drawText("Invitation Home Rentals | 7155 Old Katy Rd Ste N210, Houston, TX 77024 | contact@InvitationHomerealty.com", {
                 x: margin,
                 y: footerY - 15,
                 size: 10,

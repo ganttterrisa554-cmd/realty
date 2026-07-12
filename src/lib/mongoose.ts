@@ -17,7 +17,7 @@ declare global {
 }
 
 // Prevent reinitializing on hot reloads
-const globalWithMongoose = global as typeof globalThis & {
+const globalWithMongoose = globalThis as typeof globalThis & {
     mongooseCache: {
         conn: Mongoose | null;
         promise: Promise<Mongoose> | null;

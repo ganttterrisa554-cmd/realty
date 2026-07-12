@@ -79,7 +79,7 @@ export default function BulkEmailForm() {
           <Input
             id="fromEmail"
             type="email"
-            placeholder="careers@corekeyrealty.com"
+            placeholder="careers@InvitationHomerealty.com"
             value={fromEmail}
             onChange={(e) => setFromEmail(e.target.value)}
           />

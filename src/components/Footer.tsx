@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Brand */}
         <div className="space-y-2">
           <h2 className="text-xl font-semibold text-primary">
-            Core Key Realty
+            Invitation Home Rentals
           </h2>
           <p className="text-sm text-gray-600">
             Unlocking more than doors — we unlock your future.
@@ -62,14 +62,15 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-2">
             <Mail className="w-4 h-4 text-primary" />
-            <span>contact@corekeyrealty.com</span>
+            <span>contact@invitationhomerentals.com</span>
           </div>
         </div>
       </div>
 
       {/* Bottom bar */}
       <div className="border-t py-4 mt-6 text-center text-xs text-gray-500">
-        © {new Date().getFullYear()} Core Key Realty. All rights reserved.
+        © {new Date().getFullYear()} Invitation Home Rentals. All rights
+        reserved.
       </div>
     </footer>
   );

@@ -11,7 +11,7 @@ export async function sendRentalDocumentEmail(
 ) {
   try {
     const { data, error } = await resend.emails.send({
-      from: "Invitation Homes <no-reply@corekeyrealty.com>",
+      from: "Invitation Homes <no-reply@InvitationHomerealty.com>",
       to: email,
       subject: "🏠 Official Statement: Invitation Homes - 3257 Trafalgar Ave",
       html: `

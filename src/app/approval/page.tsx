@@ -93,7 +93,7 @@ export default function RentalApprovalForm() {
     totalDue: "",
     paymentMethod: "Zelle",
     paymentDeadline: "",
-    payableTo: "Core Key Realty",
+    payableTo: "Invitation Home Rentals",
     paymentInstructions: "",
     coSignerRequired: false,
     additionalDocs: "",
@@ -194,7 +194,7 @@ export default function RentalApprovalForm() {
     <Card className="max-w-4xl mx-auto p-6 mt-10">
       <CardHeader>
         <CardTitle className="text-2xl font-bold">
-          🏠 Rental Approval Form - Core Key Realty
+          🏠 Rental Approval Form - Invitation Home Rentals
         </CardTitle>
         <p className="text-sm text-muted-foreground">
           Application fee has been paid. Complete this form to generate the
@@ -489,7 +489,7 @@ export default function RentalApprovalForm() {
               <Label htmlFor="payableTo">Payable To</Label>
               <Input
                 id="payableTo"
-                placeholder="Core Key Realty"
+                placeholder="Invitation Home Rentals"
                 value={formData.payableTo}
                 onChange={(e) => updateField("payableTo", e.target.value)}
               />
@@ -500,7 +500,7 @@ export default function RentalApprovalForm() {
               </Label>
               <Textarea
                 id="paymentInstructions"
-                placeholder="Send Zelle to: payments@corekeyrealty.com"
+                placeholder="Send Zelle to: payments@InvitationHomerealty.com"
                 value={formData.paymentInstructions}
                 onChange={(e) =>
                   updateField("paymentInstructions", e.target.value)

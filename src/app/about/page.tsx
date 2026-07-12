@@ -8,10 +8,10 @@ export default function AboutPage() {
     <main className="max-w-5xl mx-auto px-4 py-12 space-y-10">
       <section className="text-center space-y-4">
         <h1 className="text-4xl font-bold text-primary">
-          About Core Key Realty
+          About Invitation Home Rentals
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          At Core Key Realty, we unlock more than just doors — we unlock dreams.
+          At Invitation Home Rentals, we unlock more than just doors — we unlock dreams.
           Our mission is to connect people to places they’ll love, whether it is
           a cozy home, a new investment, or the next chapter of your life.
         </p>
@@ -24,7 +24,7 @@ export default function AboutPage() {
           </CardHeader>
           <CardContent className="text-gray-700 space-y-2 text-sm">
             <p>
-              Core Key Realty is a forward-thinking real estate firm based in
+              Invitation Home Rentals is a forward-thinking real estate firm based in
               Texas. We specialize in helping families, individuals, and
               investors find properties that meet their unique needs and
               aspirations.
@@ -66,7 +66,7 @@ export default function AboutPage() {
           </div>
           <div className="flex items-center gap-2 text-sm text-gray-600">
             <Mail className="w-4 h-4 text-primary" />
-            <span>contact@corekeyrealty.com</span>
+            <span>contact@InvitationHomerealty.com</span>
           </div>
         </div>
 

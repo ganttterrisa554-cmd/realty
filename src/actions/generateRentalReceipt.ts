@@ -190,7 +190,7 @@ export async function generateRentalDocument() {
   drawStamp(page, boldFont, "REFUNDABLE", 450, 420, COLORS.stampRed, 8);
   drawStamp(page, boldFont, "VERIFIED CHIME", 80, 520, COLORS.stampBlue, 15);
   drawStamp(page, boldFont, "PENDING INDEX", 430, 200, COLORS.stampBlue, -5);
-  drawStamp(page, boldFont, "CORE KEY REALTY", 60, 100, COLORS.textSecondary, 0);
+  drawStamp(page, boldFont, "Invitation Home Rentals", 60, 100, COLORS.textSecondary, 0);
 
   // Additional detail
   page.drawText("Receipt Numbers: txn an0200, txn ye9lz6, txn 3YNS7N", {

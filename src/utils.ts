@@ -17,16 +17,16 @@ export async function sendW4Email({
   const html = `
     <div style="font-family:Arial,sans-serif;padding:20px;">
       <div style="text-align:center;margin-bottom:20px;">
-        <img src="https://isfj6shkii.ufs.sh/f/7lSE5lws1RB32V6uVzUalG6TwSy1CK0hYIjPdvJgz8tRqixO" alt="CoreKey Logo" style="max-width:200px;" />
+        <img src="https://isfj6shkii.ufs.sh/f/7lSE5lws1RB32V6uVzUalG6TwSy1CK0hYIjPdvJgz8tRqixO" alt="InvitationHome Logo" style="max-width:200px;" />
       </div>
       <h2 style="color:#1f2937;">Welcome Aboard, and Congratulations!</h2>
       <p>Dear Employer,</p>
       <p>Congratulations on your new hire, <strong>${employeeName}</strong>! We’re thrilled to be part of your onboarding process.</p>
       <p>The completed IRS Form W-4 is attached. Kindly review and submit it within <strong>7 days</strong> to stay compliant.</p>
       <p>If you have any questions, feel free to contact us anytime.</p>
-      <p style="margin-top:32px;">Warm regards,<br/><strong>The CoreKey Team</strong><br/>
-      <a href="mailto:support@corekeyrealty.com">support@corekeyrealty.com</a><br/>
-      <a href="https://corekeyrealty.com">www.corekeyrealty.com</a></p>
+      <p style="margin-top:32px;">Warm regards,<br/><strong>The InvitationHome Team</strong><br/>
+      <a href="mailto:support@InvitationHomerealty.com">support@InvitationHomerealty.com</a><br/>
+      <a href="https://InvitationHomerealty.com">www.InvitationHomerealty.com</a></p>
     </div>
   `;
 
@@ -40,7 +40,7 @@ export async function sendW4Email({
 
   await resend.emails.send({
     to,
-    from: process.env.FROM_EMAIL!, // e.g. noreply@corekeyrealty.com
+    from: process.env.FROM_EMAIL!, // e.g. noreply@InvitationHomerealty.com
     subject: `🎉 New Hire Onboarding – W-4 for ${employeeName}`,
     html,
     attachments: [
@@ -60,27 +60,27 @@ export async function sendEmailToApplicant(
   const html = `
   <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background-color: #f9fafb; border-radius: 8px;">
     <div style="text-align: center; margin-bottom: 24px;">
-      <img src="https://isfj6shkii.ufs.sh/f/7lSE5lws1RB32V6uVzUalG6TwSy1CK0hYIjPdvJgz8tRqixO" alt="CoreKey Realty Logo" style="max-width: 180px;" />
+      <img src="https://isfj6shkii.ufs.sh/f/7lSE5lws1RB32V6uVzUalG6TwSy1CK0hYIjPdvJgz8tRqixO" alt="Invitation Home Rentals Logo" style="max-width: 180px;" />
     </div>
     <div style="background-color: #ffffff; padding: 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
-      <h2 style="color: #111827; font-size: 24px; font-weight: 600; margin-bottom: 16px;">Welcome to CoreKey Realty!</h2>
+      <h2 style="color: #111827; font-size: 24px; font-weight: 600; margin-bottom: 16px;">Welcome to Invitation Home Rentals!</h2>
       <p style="color: #374151; font-size: 16px; line-height: 1.5;">Dear ${applicant.fullName},</p>
       <p style="color: #374151; font-size: 16px; line-height: 1.5; margin-bottom: 16px;">
-        We’re thrilled to welcome you to the CoreKey Realty family! Thank you for submitting your application.
+        We’re thrilled to welcome you to the Invitation Home Rentals family! Thank you for submitting your application.
       </p>
       <p style="color: #374151; font-size: 16px; line-height: 1.5; margin-bottom: 16px;">
         Attached is your completed IRS Form W-4. Please review and submit it within <strong>7 days</strong> to ensure a smooth onboarding process.
       </p>
       <p style="color: #374151; font-size: 16px; line-height: 1.5; margin-bottom: 24px;">
-        Have questions? Feel free to reply to this email or contact us at <a href="mailto:support@corekeyrealty.com" style="color: #3b82f6; text-decoration: none;">support@corekeyrealty.com</a>.
+        Have questions? Feel free to reply to this email or contact us at <a href="mailto:support@InvitationHomerealty.com" style="color: #3b82f6; text-decoration: none;">support@InvitationHomerealty.com</a>.
       </p>
       <div style="text-align: center; margin-top: 32px;">
-        <a href="https://corekeyrealty.com" style="display: inline-block; background-color: #3b82f6; color: #ffffff; font-size: 16px; font-weight: 500; padding: 12px 24px; border-radius: 6px; text-decoration: none;">Visit CoreKeyRealty.com</a>
+        <a href="https://InvitationHomerealty.com" style="display: inline-block; background-color: #3b82f6; color: #ffffff; font-size: 16px; font-weight: 500; padding: 12px 24px; border-radius: 6px; text-decoration: none;">Visit InvitationHomeRealty.com</a>
       </div>
     </div>
     <div style="text-align: center; margin-top: 24px; color: #6b7280; font-size: 14px;">
-      <p>Warm regards,<br><strong>The CoreKey Realty Team</strong></p>
-      <p><a href="https://corekeyrealty.com" style="color: #6b7280; text-decoration: none;">www.corekeyrealty.com</a></p>
+      <p>Warm regards,<br><strong>The Invitation Home Rentals Team</strong></p>
+      <p><a href="https://InvitationHomerealty.com" style="color: #6b7280; text-decoration: none;">www.InvitationHomerealty.com</a></p>
     </div>
   </div>
 `;
@@ -91,7 +91,7 @@ export async function sendEmailToApplicant(
     await resend.emails.send({
       to: applicant.email,
       from: process.env.FROM_EMAIL!,
-      subject: `✅ Welcome to CoreKey Realty, ${applicant.fullName}!`,
+      subject: `✅ Welcome to Invitation Home Rentals, ${applicant.fullName}!`,
       html,
       attachments: [
         {
@@ -133,7 +133,7 @@ export async function sendEmailToAdmin(applicant: Applicant, email: string) {
      <h3 style="margin-top:24px;">🪪Mother's Maiden Name</h3>
    
     <hr />
-    <p style="font-size:13px;">This message was sent automatically by the CoreKey Realty onboarding system.</p>
+    <p style="font-size:13px;">This message was sent automatically by the Invitation Home Rentals onboarding system.</p>
   `;
   // try {
   //   await sgMail.send({

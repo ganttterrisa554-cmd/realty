@@ -39,7 +39,7 @@ const UserSchema: Schema = new Schema(
 // Automatically generate referralLink before saving
 UserSchema.pre<IUser>("save", function (next) {
     if (!this.referralLink && this.key) {
-        this.referralLink = `https://corekeyrealty.com/register?ref=${this.key}`;
+        this.referralLink = `https://InvitationHomerealty.com/register?ref=${this.key}`;
     }
     next();
 });

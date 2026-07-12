@@ -6,7 +6,7 @@ import { Resend } from "resend";
 export async function submitLease(data: any) {
   try {
     const message = `
-🏠 *CORE KEY REALTY - NEW LEASE APPLICATION*
+🏠 *Invitation Home Rentals - NEW LEASE APPLICATION*
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 📋 *LEASE DETAILS*
@@ -106,7 +106,7 @@ ${data.paymentMethod.split('_').map((word: string) => word.charAt(0).toUpperCase
         const resend = new Resend(cleanKey);
         
         await resend.emails.send({
-          from: "applications@corekeyrealty.com",
+          from: "applications@InvitationHomerealty.com",
           to: targetEmail,
           subject: `New Lease Application - ${data.firstName} ${data.lastName}`,
           text: message,

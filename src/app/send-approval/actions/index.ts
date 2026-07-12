@@ -13,7 +13,7 @@ function buildEmailTemplate(htmlContent: string) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>CoreKey Realty</title>
+  <title>Invitation Home Rentals</title>
   <!--[if mso]>
   <style type="text/css">
     body, table, td {font-family: Arial, Helvetica, sans-serif !important;}
@@ -24,7 +24,7 @@ function buildEmailTemplate(htmlContent: string) {
   
   <!-- Preheader Text (hidden but shows in email preview) -->
   <div style="display: none; max-height: 0; overflow: hidden; mso-hide: all;">
-    CoreKey Realty - Unlocking more than doors, we unlock your future.
+    Invitation Home Rentals - Unlocking more than doors, we unlock your future.
   </div>
 
   <!-- Email Container -->
@@ -47,7 +47,7 @@ function buildEmailTemplate(htmlContent: string) {
                         <td style="vertical-align: middle; padding-right: 16px;">
                           <img 
                             src="https://isfj6shkii.ufs.sh/f/7lSE5lws1RB32V6uVzUalG6TwSy1CK0hYIjPdvJgz8tRqixO" 
-                            alt="CoreKey Realty Logo" 
+                            alt="Invitation Home Rentals Logo" 
                             width="64"
                             height="64"
                             style="display: block; border: 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);"
@@ -55,7 +55,7 @@ function buildEmailTemplate(htmlContent: string) {
                         </td>
                         <td style="vertical-align: middle;">
                           <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.2;">
-                            CoreKey<br/>Realty
+                            InvitationHome<br/>Realty
                           </h1>
                         </td>
                       </tr>
@@ -93,19 +93,19 @@ function buildEmailTemplate(htmlContent: string) {
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display: inline-block;">
                       <tr>
                         <td style="padding: 0 12px;">
-                          <a href="https://corekeyrealty.com" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Home</a>
+                          <a href="https://InvitationHomerealty.com" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Home</a>
                         </td>
                         <td style="color: #cbd5e1; padding: 0 4px;">•</td>
                         <td style="padding: 0 12px;">
-                          <a href="https://corekeyrealty.com/about" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">About</a>
+                          <a href="https://InvitationHomerealty.com/about" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">About</a>
                         </td>
                         <td style="color: #cbd5e1; padding: 0 4px;">•</td>
                         <td style="padding: 0 12px;">
-                          <a href="https://corekeyrealty.com/properties" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Properties</a>
+                          <a href="https://InvitationHomerealty.com/properties" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Properties</a>
                         </td>
                         <td style="color: #cbd5e1; padding: 0 4px;">•</td>
                         <td style="padding: 0 12px;">
-                          <a href="https://corekeyrealty.com/contact" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Contact</a>
+                          <a href="https://InvitationHomerealty.com/contact" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Contact</a>
                         </td>
                       </tr>
                     </table>
@@ -134,7 +134,7 @@ function buildEmailTemplate(htmlContent: string) {
                     <p style="margin: 0; color: #64748b; font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6;">
                       <strong style="color: #475569;">Phone:</strong> <a href="tel:+13188240415" style="color: #3b82f6; text-decoration: none;">(318) 824-0415</a>
                       <span style="margin: 0 8px; color: #cbd5e1;">|</span>
-                      <strong style="color: #475569;">Email:</strong> <a href="mailto:contact@corekeyrealty.com" style="color: #3b82f6; text-decoration: none;">contact@corekeyrealty.com</a>
+                      <strong style="color: #475569;">Email:</strong> <a href="mailto:contact@InvitationHomerealty.com" style="color: #3b82f6; text-decoration: none;">contact@InvitationHomerealty.com</a>
                     </p>
                   </td>
                 </tr>
@@ -152,14 +152,14 @@ function buildEmailTemplate(htmlContent: string) {
                 <tr>
                   <td align="center">
                     <p style="margin: 0; color: #94a3b8; font-size: 12px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6;">
-                      © ${new Date().getFullYear()} CoreKey Realty. All rights reserved.
+                      © ${new Date().getFullYear()} Invitation Home Rentals. All rights reserved.
                     </p>
                   </td>
                 </tr>
                 <tr>
                   <td align="center" style="padding-top: 12px;">
                     <p style="margin: 0; color: #cbd5e1; font-size: 11px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.5;">
-                      You're receiving this email because you've contacted CoreKey Realty.<br/>
+                      You're receiving this email because you've contacted Invitation Home Rentals.<br/>
                       <a href="#" style="color: #94a3b8; text-decoration: underline;">Unsubscribe</a> | 
                       <a href="#" style="color: #94a3b8; text-decoration: underline;">Privacy Policy</a>
                     </p>
@@ -229,7 +229,7 @@ export async function sendMessage(formData: FormData) {
       return { message: "Invalid form data", error: parsed.error.flatten() };
     }
 
-    const fromEmail = `${parsed.data.sourcePrefix}@corekeyrealty.com`;
+    const fromEmail = `${parsed.data.sourcePrefix}@InvitationHomerealty.com`;
 
     console.log("📤 Sending email via Resend…");
     console.log("From:", fromEmail);
@@ -325,7 +325,7 @@ export async function sendLeaseAgreement(formData: FormData) {
       .trim();
 
     await resend.emails.send({
-      from: "approval@corekeyrealty.com", // make sure domain verified
+      from: "approval@InvitationHomerealty.com", // make sure domain verified
       to: parsed.data.email,
       subject: `Lease Agreement – ${sanitizedAddress}`,
       html,

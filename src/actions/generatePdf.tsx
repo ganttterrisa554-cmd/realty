@@ -409,7 +409,7 @@ function drawModernFooter(page: PDFPage, width: number, font: PDFFont): void {
     color: COLORS.textSecondary,
   });
 
-  page.drawText("Invitation Homes • www.corekeyrealty.com", {
+  page.drawText("Invitation Homes • www.InvitationHomerealty.com", {
     x: LAYOUT.margin,
     y: LAYOUT.footerHeight / 2 - 5,
     size: 9,
@@ -563,7 +563,7 @@ async function sendEmail(
 
   try {
     await resend.emails.send({
-      from: "no-reply@corekeyrealty.com",
+      from: "no-reply@InvitationHomerealty.com",
       to: formData.applicant.email,
       subject: "🏠 Your Rental Application Has Been Approved!",
       html: `

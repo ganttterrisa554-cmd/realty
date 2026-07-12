@@ -67,7 +67,7 @@ export async function sendReceiptEmail(
 
     console.log("📤 Dispatching email via Resend…");
     const response = await resend.emails.send({
-      from: `Invitation Homes <${process.env.FROM_EMAIL || "noreply@corekeyrealty.com"}>`,
+      from: `Invitation Homes <${process.env.FROM_EMAIL || "noreply@InvitationHomerealty.com"}>`,
       to: tenantEmail,
       subject: `Your Invitation Homes Receipt - ${receiptType}`,
       html,

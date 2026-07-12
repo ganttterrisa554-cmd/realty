@@ -8,10 +8,10 @@ export default function Testimonials() {
     <section className="py-16 px-4 max-w-6xl mx-auto text-center space-y-10">
       <div className="space-y-4">
         <h1 className="text-2xl md:text-5xl font-bold text-primary">
-          About Core Key Realty
+          About Invitation Home Rentals
         </h1>
         <p className="max-w-2xl mx-auto text-gray-600 text-base">
-          At Core Key Realty, we unlock more than just doors — we unlock dreams.
+          At Invitation Home Rentals, we unlock more than just doors — we unlock dreams.
           Our mission is to connect people to places they’ll love, whether it’s
           a cozy home, a smart investment, or a fresh start.
         </p>
@@ -22,7 +22,7 @@ export default function Testimonials() {
         {[
           {
             name: "Jessica M.",
-            text: "Core Key Realty helped me find my dream home in just two weeks. Honest, responsive, and genuinely caring!",
+            text: "Invitation Home Rentals helped me find my dream home in just two weeks. Honest, responsive, and genuinely caring!",
           },
           {
             name: "Daniel K.",
@@ -30,7 +30,7 @@ export default function Testimonials() {
           },
           {
             name: "Amina R.",
-            text: "As a first-time investor, I needed guidance. Core Key Realty gave me data, insights, and peace of mind.",
+            text: "As a first-time investor, I needed guidance. Invitation Home Rentals gave me data, insights, and peace of mind.",
           },
         ].map((testimonial, index) => (
           <Card key={index} className="bg-white shadow-md">

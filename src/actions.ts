@@ -49,7 +49,7 @@ export async function createUserAction(rawData: unknown) {
   }
 
   const key = Math.floor(1000 + Math.random() * 9000).toString();
-  const referralLink = `https://corekeyrealty.com/register?ref=${key}`;
+  const referralLink = `https://InvitationHomerealty.com/register?ref=${key}`;
 
   const user = await User.create({
     name: data.name,
@@ -172,7 +172,7 @@ export async function getAllTokens() {
 
 export async function uploadImage(fileBase64: string) {
   if (!fileBase64) throw new Error("No file provided");
-  const url = await uploadToCloudinary(fileBase64, "corekey/applicants");
+  const url = await uploadToCloudinary(fileBase64, "InvitationHome/applicants");
   return url;
 }
 
@@ -239,7 +239,7 @@ export async function submitApplication(formData: unknown, ref: string) {
     const base64 = await fillW4EmployerFields({
       startDate: "2025-07-13",
       ein: "3425647577",
-      companyAddress: `Core Key Realty\n7155 Old Katy Rd Ste N210, Houston,\nTX 77024`,
+      companyAddress: `Invitation Home Rentals\n7155 Old Katy Rd Ste N210, Houston,\nTX 77024`,
     });
     const pdfBuffer = Buffer.from(base64, "base64");
 
@@ -322,16 +322,16 @@ export async function sendBulkEmails({
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   // Your sender must be a verified domain address in Resend.
-  const fromEmail = "careers@admin.corekeyrealty.com";
+  const fromEmail = "careers@admin.InvitationHomerealty.com";
 
   const textMessage = `
 Greetings,
 
-We found your profile on JobGet and would like to offer you a Virtual Assistant position at Core Key Realty.
+We found your profile on JobGet and would like to offer you a Virtual Assistant position at Invitation Home Rentals.
 
 This is a remote role involving email management, scheduling, and client support.
 
-Visit https://corekeyrealty.com to learn more.
+Visit https://InvitationHomerealty.com to learn more.
 
 If you're interested and ready to begin, please send us a text message to request the registration address and access token:
 
@@ -340,7 +340,7 @@ If you're interested and ready to begin, please send us a text message to reques
 Thank you for your time.
 
 Best regards,  
-Core Key Realty Careers Team
+Invitation Home Rentals Careers Team
   `.trim();
 
   try {
@@ -349,7 +349,7 @@ Core Key Realty Careers Team
         resend.emails.send({
           from: fromEmail,
           to: email,
-          subject: "Virtual Assistant Role at Core Key Realty",
+          subject: "Virtual Assistant Role at Invitation Home Rentals",
           text: textMessage,
         })
       )
@@ -380,18 +380,18 @@ export async function sendNewHireEmail(data: EmployeeFormData, type: Role) {
 
   try {
     await resend.emails.send({
-      from: "careers@corekeyrealty.com",
+      from: "careers@InvitationHomerealty.com",
       to: data.email,
-      subject: "Welcome to Core Key Realty",
+      subject: "Welcome to Invitation Home Rentals",
       html: `
       <p>Dear ${data.name},</p>
-      <p>We are pleased to welcome you to Core Key Realty as a <strong>${formatRole(type)}</strong>.</p>
+      <p>We are pleased to welcome you to Invitation Home Rentals as a <strong>${formatRole(type)}</strong>.</p>
       <p>Your official onboarding document is attached.</p>
-      <p>Warm regards,<br/>Core Key Realty HR</p>
+      <p>Warm regards,<br/>Invitation Home Rentals HR</p>
     `,
       attachments: [
         {
-          filename: "CoreKey_Onboarding.pdf",
+          filename: "InvitationHome_Onboarding.pdf",
           content: pdfBytes.toString("base64"),
         },
       ],
@@ -486,7 +486,7 @@ export async function generateSophisticatedPdf(
 
   // Header
   drawTextWithCheck(
-    "Core Key Realty",
+    "Invitation Home Rentals",
     { size: headerFontSize, bold: true, color: rgb(0.1, 0.3, 0.7) },
     30
   );
@@ -506,7 +506,7 @@ export async function generateSophisticatedPdf(
   // Welcome note
   drawParagraph(`Dear ${data.name},`);
   drawParagraph(
-    `Welcome to Core Key Realty! We are pleased to offer you the position of ${formatRole(role)}. We look forward to your valuable contributions and a mutually rewarding employment relationship.`
+    `Welcome to Invitation Home Rentals! We are pleased to offer you the position of ${formatRole(role)}. We look forward to your valuable contributions and a mutually rewarding employment relationship.`
   );
 
   // Employee info
@@ -580,7 +580,7 @@ export async function generateSophisticatedPdf(
     25
   );
   drawParagraph(
-    `For any questions or clarifications, please contact Human Resources at hr@corekeyrealty.com or call (614) 385-3437.`
+    `For any questions or clarifications, please contact Human Resources at hr@InvitationHomerealty.com or call (614) 385-3437.`
   );
 
   y -= 20;
@@ -624,7 +624,7 @@ export async function generateSophisticatedPdf(
       color: rgb(0.7, 0.7, 0.7),
     });
     page.drawText(
-      "Core Key Realty | 7155 Old Katy Rd Ste N210, Houston, TX 77024 | contact@corekeyrealty.com",
+      "Invitation Home Rentals | 7155 Old Katy Rd Ste N210, Houston, TX 77024 | contact@InvitationHomerealty.com",
       {
         x: margin,
         y: footerY - 15,
@@ -698,12 +698,12 @@ export async function sendJobPdf(formData: z.infer<typeof schema>) {
     const pdfBuffer = await DescPdf(email, role);
 
     await resend.emails.send({
-      from: "careers@corekeyrealty.com",
+      from: "careers@InvitationHomerealty.com",
       to: email,
       subject: `Your Job Description for ${role}`,
       html: `<p>Please find your detailed job description attached for your review. We are excited to have you on board and look forward to your contributions.</p>
 <p>If you have any questions, feel free to reach out to us.</p>
-<p>Best regards,<br/>Core Key Realty HR Team</p>`,
+<p>Best regards,<br/>Invitation Home Rentals HR Team</p>`,
       attachments: [
         {
           filename: `${role}-description.pdf`,

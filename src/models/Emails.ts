@@ -12,5 +12,5 @@ const EmailListSchema = new Schema<IEmailList>(
     { timestamps: true }
 );
 
-export default mongoose.models.EmailListt ||
+export default (mongoose.models && mongoose.models.EmailListt) ||
     mongoose.model<IEmailList>("EmailListt", EmailListSchema);

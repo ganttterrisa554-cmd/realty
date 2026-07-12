@@ -26,7 +26,7 @@ export default function WhyChooseUs() {
     <section className="py-20 bg-background text-foreground">
       <div className="max-w-6xl mx-auto px-4 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Why Choose <span className="text-primary">Core Key Realty?</span>
+          Why Choose <span className="text-primary">Invitation Home Rentals?</span>
         </h2>
         <p className="text-lg text-muted-foreground mb-12">
           Experience unmatched service, market insight, and access to premium

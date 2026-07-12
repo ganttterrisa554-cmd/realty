@@ -142,7 +142,7 @@ export default function SendMessagePage() {
                     </SelectContent>
                   </Select>
                   <span className="text-sm text-muted-foreground whitespace-nowrap">
-                    @corekeyrealty.com
+                    @InvitationHomerealty.com
                   </span>
                 </div>
               </div>
