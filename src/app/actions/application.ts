@@ -82,7 +82,7 @@ Status: ${data.employmentStatus.replace(/_/g, " ").toUpperCase()}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 💳 *PAYMENT METHOD*
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
-${data.paymentMethod.split('_').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+${data.paymentMethod === "cashapp" ? "Cash App" : data.paymentMethod.split('_').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⏰ *Submitted:* ${new Date().toLocaleString("en-US", {

@@ -177,7 +177,7 @@ const formSchema = z
       .regex(/^[\d\s\-\+\(\)]+$/, "Invalid phone number format"),
     emergencyContactRelationship: z.string().min(2, "Relationship is required"),
 
-    paymentMethod: z.enum(["zelle", "chime", "apple_pay"], {
+    paymentMethod: z.enum(["zelle", "chime", "apple_pay", "cashapp"], {
       error: "Payment method is required",
     }),
   })
@@ -853,6 +853,7 @@ export default function LeaseApplicationForm() {
                     <SelectItem value="zelle">Zelle</SelectItem>
                     <SelectItem value="chime">Chime</SelectItem>
                     <SelectItem value="apple_pay">Apple Pay</SelectItem>
+                    <SelectItem value="cashapp">Cash App</SelectItem>
                   </SelectContent>
                 </Select>
                 {errors.paymentMethod && (
