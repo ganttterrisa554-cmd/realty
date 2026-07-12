@@ -67,11 +67,14 @@ export async function sendReceiptEmail(
 
     console.log("📤 Dispatching email via Resend…");
     const response = await resend.emails.send({
-      from: `Invitation Homes <${process.env.FROM_EMAIL || "noreply@InvitationHomerealty.com"}>`,
+      from: `Invitation Homes <${process.env.FROM_EMAIL || "noreply@invitationhomes.com"}>`,
       to: tenantEmail,
       subject: `Your Invitation Homes Receipt - ${receiptType}`,
       html,
-      attachments,
+      attachments: attachments.map(att => ({
+        filename: att.filename,
+        content: att.content, // Resend accepts base64 as string
+      })),
     });
 
     if (response.error) {
