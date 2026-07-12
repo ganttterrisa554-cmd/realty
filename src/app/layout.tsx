@@ -16,18 +16,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const dynamicImageUrl =
-  "https://isfj6shkii.ufs.sh/f/7lSE5lws1RB32V6uVzUalG6TwSy1CK0hYIjPdvJgz8tRqixO";
+const dynamicImageUrl = "/invitation-home.png";
 
 export const metadata: Metadata = {
   title: {
-    default: "Core Key Realty - Your Trusted U.S. Real Estate Partner",
-    template: "%s | Core Key Realty",
+    default: "Invitation Home Rentals - Your Trusted U.S. Real Estate Partner",
+    template: "%s | Invitation Home Rentals",
   },
   description:
-    "Explore premier properties for sale and rent across the United States. Core Key Realty helps you make smart real estate decisions from coast to coast.",
+    "Explore premier properties for sale and rent across the United States. Invitation Home Rentals helps you make smart real estate decisions from coast to coast.",
   keywords: [
-    "Core Key Realty",
+    "Invitation Home Rentals",
     "real estate USA",
     "homes for sale",
     "houses in New York",
@@ -37,21 +36,26 @@ export const metadata: Metadata = {
     "rental homes",
     "property management",
   ],
-  authors: [{ name: "Core Key Realty", url: "https://corekeyrealty.com" }],
-  creator: "Core Key Realty",
-  publisher: "Core Key Realty",
+  authors: [
+    {
+      name: "Invitation Home Rentals",
+      url: "https://invitationhomesrentals.com",
+    },
+  ],
+  creator: "Invitation Home Rentals",
+  publisher: "Invitation Home Rentals",
   robots: {
     index: true,
     follow: true,
     nocache: false,
   },
-  metadataBase: new URL("https://corekeyrealty.com"),
+  metadataBase: new URL("https://invitationhomesrentals.com"),
   openGraph: {
-    title: "Core Key Realty - Your Trusted U.S. Real Estate Partner",
+    title: "Invitation Home Rentals - Your Trusted U.S. Real Estate Partner",
     description:
-      "Buy, rent, or invest in top properties across the United States. From New York to California, Core Key Realty connects you to your dream home.",
-    url: "https://corekeyrealty.com",
-    siteName: "Core Key Realty",
+      "Buy, rent, or invest in top properties across the United States. From New York to California, Invitation Home Rentals connects you to your dream home.",
+    url: "https://invitationhomesrentals.com",
+    siteName: "Invitation Home Rentals",
     locale: "en_US",
     type: "website",
     images: [
@@ -59,17 +63,17 @@ export const metadata: Metadata = {
         url: dynamicImageUrl,
         width: 1200,
         height: 630,
-        alt: "Core Key Realty homepage banner showing homes",
+        alt: "Invitation Home Rentals homepage banner showing homes",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Core Key Realty - U.S. Real Estate Solutions",
+    title: "Invitation Home Rentals - U.S. Real Estate Solutions",
     description:
-      "Trusted advisors in U.S. real estate. Find, buy, or rent your next home with Core Key Realty.",
+      "Trusted advisors in U.S. real estate. Find, buy, or rent your next home with Invitation Home Rentals.",
     images: [dynamicImageUrl],
-    site: "@CoreKeyRealty",
+    site: "@InvitationHomeRentals",
   },
   icons: {
     icon: dynamicImageUrl,
@@ -86,8 +90,8 @@ export default function RootLayout({
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
-    name: "Core Key Realty",
-    url: "https://corekeyrealty.com",
+    name: "Invitation Home Rentals",
+    url: "https://invitationhomesrentals.com",
     logo: dynamicImageUrl,
     image: dynamicImageUrl,
     description:
@@ -97,7 +101,7 @@ export default function RootLayout({
       addressCountry: "US",
     },
     sameAs: [
-      "https://twitter.com/CoreKeyRealty",
+      "https://twitter.com/InvitationHomeRentals",
       // Add other social profiles as needed
     ],
     areaServed: {
@@ -113,19 +117,20 @@ export default function RootLayout({
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Core Key Realty",
-    url: "https://corekeyrealty.com",
+    name: "Invitation Home Rentals",
+    url: "https://invitationhomesrentals.com",
     description:
       "Explore premier properties for sale and rent across the United States.",
     publisher: {
       "@type": "RealEstateAgent",
-      name: "Core Key Realty",
+      name: "Invitation Home Rentals",
     },
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "https://corekeyrealty.com/search?q={search_term_string}",
+        urlTemplate:
+          "https://invitationhomesrentals.com/search?q={search_term_string}",
       },
       "query-input": "required name=search_term_string",
     },
