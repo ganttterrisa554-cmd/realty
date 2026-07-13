@@ -24,7 +24,7 @@ export default function BulkEmailForm() {
       .filter((email) => email !== "");
 
     const isValid = emails.every((email) =>
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
     );
 
     if (!isValid) {
@@ -79,7 +79,7 @@ export default function BulkEmailForm() {
           <Input
             id="fromEmail"
             type="email"
-            placeholder="careers@InvitationHomerealty.com"
+            placeholder="careers@invitationhomesrental.com"
             value={fromEmail}
             onChange={(e) => setFromEmail(e.target.value)}
           />

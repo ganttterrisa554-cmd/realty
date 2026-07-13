@@ -11,9 +11,10 @@ export default function AboutPage() {
           About Invitation Home Rentals
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          At Invitation Home Rentals, we unlock more than just doors — we unlock dreams.
-          Our mission is to connect people to places they’ll love, whether it is
-          a cozy home, a new investment, or the next chapter of your life.
+          At Invitation Home Rentals, we unlock more than just doors — we unlock
+          dreams. Our mission is to connect people to places they’ll love,
+          whether it is a cozy home, a new investment, or the next chapter of
+          your life.
         </p>
       </section>
 
@@ -24,9 +25,9 @@ export default function AboutPage() {
           </CardHeader>
           <CardContent className="text-gray-700 space-y-2 text-sm">
             <p>
-              Invitation Home Rentals is a forward-thinking real estate firm based in
-              Texas. We specialize in helping families, individuals, and
-              investors find properties that meet their unique needs and
+              Invitation Home Rentals is a forward-thinking real estate firm
+              based in Texas. We specialize in helping families, individuals,
+              and investors find properties that meet their unique needs and
               aspirations.
             </p>
             <p>
@@ -66,7 +67,7 @@ export default function AboutPage() {
           </div>
           <div className="flex items-center gap-2 text-sm text-gray-600">
             <Mail className="w-4 h-4 text-primary" />
-            <span>contact@InvitationHomerealty.com</span>
+            <span>contact@invitationhomesrental.com</span>
           </div>
         </div>
 

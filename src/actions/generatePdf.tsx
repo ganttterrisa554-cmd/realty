@@ -67,7 +67,7 @@ class PDFLayoutManager {
     private font: PDFFont,
     private boldFont: PDFFont,
     startY: number,
-    minY: number = LAYOUT.footerHeight + 30
+    minY: number = LAYOUT.footerHeight + 30,
   ) {
     this.currentY = startY;
     this.startY = startY;
@@ -82,7 +82,7 @@ class PDFLayoutManager {
       indent?: number;
       color?: ReturnType<typeof rgb>;
       lineSpacing?: number;
-    } = {}
+    } = {},
   ) {
     const {
       size = 11,
@@ -243,7 +243,7 @@ function drawModernHeader(
   height: number,
   boldFont: PDFFont,
   font: PDFFont,
-  formData: RentalFormData
+  formData: RentalFormData,
 ): void {
   // Main header background with gradient effect (simulated with multiple rectangles)
   const headerY = height - LAYOUT.headerHeight;
@@ -342,7 +342,7 @@ function drawEnhancedContentCard(
   page: PDFPage,
   width: number,
   height: number,
-  startY: number
+  startY: number,
 ): number {
   const cardHeight = startY - LAYOUT.footerHeight - LAYOUT.margin - 10;
 
@@ -409,7 +409,7 @@ function drawModernFooter(page: PDFPage, width: number, font: PDFFont): void {
     color: COLORS.textSecondary,
   });
 
-  page.drawText("Invitation Homes • www.InvitationHomerealty.com", {
+  page.drawText("Invitation Homes • www.invitationhomesrental.com", {
     x: LAYOUT.margin,
     y: LAYOUT.footerHeight / 2 - 5,
     size: 9,
@@ -439,7 +439,7 @@ function formatCurrency(value: number | string): string {
 
 function drawEnhancedLetterContent(
   layout: PDFLayoutManager,
-  formData: RentalFormData
+  formData: RentalFormData,
 ): void {
   // Greeting with personalized styling
   layout.addSpace(5);
@@ -458,7 +458,7 @@ function drawEnhancedLetterContent(
 
   layout.drawText(
     "We are delighted to inform you that your rental application has been",
-    { size: 11, lineSpacing: 0 }
+    { size: 11, lineSpacing: 0 },
   );
   layout.drawText(`${approvalText} by Invitation Homes. Welcome home!`, {
     size: 11,
@@ -475,11 +475,11 @@ function drawEnhancedLetterContent(
   layout.drawInfoRow("Address", formData.propertyAddress);
   layout.drawInfoRow(
     "Monthly Rent",
-    `$${formatCurrency(formData.monthlyRent)}`
+    `$${formatCurrency(formData.monthlyRent)}`,
   );
   layout.drawInfoRow(
     "Security Deposit",
-    `$${formatCurrency(formData.securityDeposit || formData.monthlyRent)}`
+    `$${formatCurrency(formData.securityDeposit || formData.monthlyRent)}`,
   );
   layout.drawInfoRow("Lease Term", `${formData.leaseTerm} months`);
   layout.addSpace(LAYOUT.sectionSpacing);
@@ -490,12 +490,12 @@ function drawEnhancedLetterContent(
   layout.drawInfoRow(
     "Total Due Before Move-In",
     `$${formatCurrency(formData.totalDue)}`,
-    true
+    true,
   );
   layout.addSpace(8);
   layout.drawText(
     "This amount includes first month's rent, security deposit, and any applicable fees.",
-    { size: 9, color: COLORS.textSecondary, indent: 20 }
+    { size: 9, color: COLORS.textSecondary, indent: 20 },
   );
   layout.addSpace(LAYOUT.sectionSpacing);
 
@@ -525,7 +525,7 @@ function drawEnhancedLetterContent(
   // Closing message
   layout.drawText(
     "We look forward to welcoming you to your new home and providing you with an",
-    { size: 11, color: COLORS.textPrimary }
+    { size: 11, color: COLORS.textPrimary },
   );
   layout.drawText("exceptional living experience.", {
     size: 11,
@@ -554,7 +554,7 @@ function drawEnhancedLetterContent(
 
 async function sendEmail(
   formData: RentalFormData,
-  pdfBuffer: Buffer
+  pdfBuffer: Buffer,
 ): Promise<void> {
   if (!formData.applicant?.email) {
     console.log("No email provided, skipping email send");
@@ -563,7 +563,7 @@ async function sendEmail(
 
   try {
     await resend.emails.send({
-      from: "no-reply@InvitationHomerealty.com",
+      from: "no-reply@invitationhomesrental.com",
       to: formData.applicant.email,
       subject: "🏠 Your Rental Application Has Been Approved!",
       html: `
@@ -651,7 +651,7 @@ export async function generateRentalApproval(formData: RentalFormData) {
       page,
       width,
       height,
-      contentStartY
+      contentStartY,
     );
 
     // Create layout manager and draw content

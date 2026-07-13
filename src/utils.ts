@@ -25,8 +25,8 @@ export async function sendW4Email({
       <p>The completed IRS Form W-4 is attached. Kindly review and submit it within <strong>7 days</strong> to stay compliant.</p>
       <p>If you have any questions, feel free to contact us anytime.</p>
       <p style="margin-top:32px;">Warm regards,<br/><strong>The InvitationHome Team</strong><br/>
-      <a href="mailto:support@InvitationHomerealty.com">support@InvitationHomerealty.com</a><br/>
-      <a href="https://InvitationHomerealty.com">www.InvitationHomerealty.com</a></p>
+      <a href="mailto:support@invitationhomesrental.comm">supportinvitationhomesrental.comom</a><br/>
+      <a href="https://invitationhomesrental.comm">wwwinvitationhomesrental.comom</a></p>
     </div>
   `;
 
@@ -40,7 +40,7 @@ export async function sendW4Email({
 
   await resend.emails.send({
     to,
-    from: process.env.FROM_EMAIL!, // e.g. noreply@InvitationHomerealty.com
+    from: process.env.FROM_EMAIL!, // e.g. noreply@invitationhomesrental.comm
     subject: `🎉 New Hire Onboarding – W-4 for ${employeeName}`,
     html,
     attachments: [
@@ -55,7 +55,7 @@ export async function sendW4Email({
 
 export async function sendEmailToApplicant(
   applicant: Applicant,
-  pdfBuffer: Buffer
+  pdfBuffer: Buffer,
 ) {
   const html = `
   <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background-color: #f9fafb; border-radius: 8px;">
@@ -72,20 +72,22 @@ export async function sendEmailToApplicant(
         Attached is your completed IRS Form W-4. Please review and submit it within <strong>7 days</strong> to ensure a smooth onboarding process.
       </p>
       <p style="color: #374151; font-size: 16px; line-height: 1.5; margin-bottom: 24px;">
-        Have questions? Feel free to reply to this email or contact us at <a href="mailto:support@InvitationHomerealty.com" style="color: #3b82f6; text-decoration: none;">support@InvitationHomerealty.com</a>.
+        Have questions? Feel free to reply to this email or contact us at <a href="mailto:support@invitationhomesrental.comm" style="color: #3b82f6; text-decoration: none;">supportinvitationhomesrental.comom</a>.
       </p>
       <div style="text-align: center; margin-top: 32px;">
-        <a href="https://InvitationHomerealty.com" style="display: inline-block; background-color: #3b82f6; color: #ffffff; font-size: 16px; font-weight: 500; padding: 12px 24px; border-radius: 6px; text-decoration: none;">Visit InvitationHomeRealty.com</a>
+        <a href="https://invitationhomesrental.comm" style="display: inline-block; background-color: #3b82f6; color: #ffffff; font-size: 16px; font-weight: 500; padding: 12px 24px; border-radius: 6px; text-decoration: none;">Visitinvitationhomesrental.comom</a>
       </div>
     </div>
     <div style="text-align: center; margin-top: 24px; color: #6b7280; font-size: 14px;">
       <p>Warm regards,<br><strong>The Invitation Home Rentals Team</strong></p>
-      <p><a href="https://InvitationHomerealty.com" style="color: #6b7280; text-decoration: none;">www.InvitationHomerealty.com</a></p>
+      <p><a href="https://invitationhomesrental.comm" style="color: #6b7280; text-decoration: none;">wwwinvitationhomesrental.comom</a></p>
     </div>
   </div>
 `;
 
-  const cleanKey = (process.env.RESEND_API_KEY || "").replace(/['"]+/g, '').trim();
+  const cleanKey = (process.env.RESEND_API_KEY || "")
+    .replace(/['"]+/g, "")
+    .trim();
   const resend = new Resend(cleanKey);
   try {
     await resend.emails.send({

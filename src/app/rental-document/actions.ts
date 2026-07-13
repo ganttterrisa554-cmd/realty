@@ -7,11 +7,11 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function sendRentalDocumentEmail(
   email: string,
   pdfBase64: string,
-  fileName: string
+  fileName: string,
 ) {
   try {
     const { data, error } = await resend.emails.send({
-      from: "Invitation Homes <no-reply@InvitationHomerealty.com>",
+      from: "Invitation Homes <no-reply@invitationhomesrental.com>",
       to: email,
       subject: "🏠 Official Statement: Invitation Homes - 3257 Trafalgar Ave",
       html: `

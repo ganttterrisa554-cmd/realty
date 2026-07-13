@@ -84,15 +84,15 @@ async function sendTestEmail() {
           Attached is your completed IRS Form W-4. Please review and submit it within <strong>7 days</strong> to ensure a smooth onboarding process.
         </p>
         <p style="color: #374151; font-size: 16px; line-height: 1.5; margin-bottom: 24px;">
-          Have questions? Feel free to reply to this email or contact us at <a href="mailto:support@InvitationHomerealty.com" style="color: #3b82f6; text-decoration: none;">support@InvitationHomerealty.com</a>.
+          Have questions? Feel free to reply to this email or contact us at <a href="mailto:support@invitationhomesrental.com" style="color: #3b82f6; text-decoration: none;">support@invitationhomesrental.com</a>.
         </p>
         <div style="text-align: center; margin-top: 32px;">
-          <a href="https://InvitationHomerealty.com" style="display: inline-block; background-color: #3b82f6; color: #ffffff; font-size: 16px; font-weight: 500; padding: 12px 24px; border-radius: 6px; text-decoration: none;">Visit InvitationHomeRealty.com</a>
+          <a href="https://invitationhomesrental.com" style="display: inline-block; background-color: #3b82f6; color: #ffffff; font-size: 16px; font-weight: 500; padding: 12px 24px; border-radius: 6px; text-decoration: none;">Visit invitationhomesrental.com</a>
         </div>
       </div>
       <div style="text-align: center; margin-top: 24px; color: #6b7280; font-size: 14px;">
         <p>Warm regards,<br><strong>The Invitation Home Rentals Team</strong></p>
-        <p><a href="https://InvitationHomerealty.com" style="color: #6b7280; text-decoration: none;">www.InvitationHomerealty.com</a></p>
+        <p><a href="https://invitationhomesrental.com" style="color: #6b7280; text-decoration: none;">www.invitationhomesrental.com</a></p>
       </div>
     </div>
   `;

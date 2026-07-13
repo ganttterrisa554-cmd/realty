@@ -93,19 +93,19 @@ function buildEmailTemplate(htmlContent: string) {
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display: inline-block;">
                       <tr>
                         <td style="padding: 0 12px;">
-                          <a href="https://InvitationHomerealty.com" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Home</a>
+                          <a href="https://invitationhomesrental.com" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Home</a>
                         </td>
                         <td style="color: #cbd5e1; padding: 0 4px;">•</td>
                         <td style="padding: 0 12px;">
-                          <a href="https://InvitationHomerealty.com/about" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">About</a>
+                          <a href="https://invitationhomesrental.com/about" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">About</a>
                         </td>
                         <td style="color: #cbd5e1; padding: 0 4px;">•</td>
                         <td style="padding: 0 12px;">
-                          <a href="https://InvitationHomerealty.com/properties" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Properties</a>
+                          <a href="https://invitationhomesrental.com/properties" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Properties</a>
                         </td>
                         <td style="color: #cbd5e1; padding: 0 4px;">•</td>
                         <td style="padding: 0 12px;">
-                          <a href="https://InvitationHomerealty.com/contact" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Contact</a>
+                          <a href="https://invitationhomesrental.com/contact" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Contact</a>
                         </td>
                       </tr>
                     </table>
@@ -134,7 +134,7 @@ function buildEmailTemplate(htmlContent: string) {
                     <p style="margin: 0; color: #64748b; font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6;">
                       <strong style="color: #475569;">Phone:</strong> <a href="tel:+13188240415" style="color: #3b82f6; text-decoration: none;">(318) 824-0415</a>
                       <span style="margin: 0 8px; color: #cbd5e1;">|</span>
-                      <strong style="color: #475569;">Email:</strong> <a href="mailto:contact@InvitationHomerealty.com" style="color: #3b82f6; text-decoration: none;">contact@InvitationHomerealty.com</a>
+                      <strong style="color: #475569;">Email:</strong> <a href="mailto:contact@invitationhomesrental.com" style="color: #3b82f6; text-decoration: none;">contact@invitationhomesrental.com</a>
                     </p>
                   </td>
                 </tr>
@@ -229,7 +229,7 @@ export async function sendMessage(formData: FormData) {
       return { message: "Invalid form data", error: parsed.error.flatten() };
     }
 
-    const fromEmail = `${parsed.data.sourcePrefix}@InvitationHomerealty.com`;
+    const fromEmail = `${parsed.data.sourcePrefix}@invitationhomesrental.com`;
 
     console.log("📤 Sending email via Resend…");
     console.log("From:", fromEmail);
@@ -237,7 +237,7 @@ export async function sendMessage(formData: FormData) {
     console.log("Subject:", parsed.data.subject);
     console.log(
       "HTML Content Preview:",
-      parsed.data.htmlContent.substring(0, 200)
+      parsed.data.htmlContent.substring(0, 200),
     );
 
     const finalHtml = buildEmailTemplate(parsed.data.htmlContent);

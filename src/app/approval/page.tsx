@@ -500,7 +500,7 @@ export default function RentalApprovalForm() {
               </Label>
               <Textarea
                 id="paymentInstructions"
-                placeholder="Send Zelle to: payments@InvitationHomerealty.com"
+                placeholder="Send Zelle to: payments@invitationhomesrental.com"
                 value={formData.paymentInstructions}
                 onChange={(e) =>
                   updateField("paymentInstructions", e.target.value)

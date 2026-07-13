@@ -49,7 +49,7 @@ export async function createUserAction(rawData: unknown) {
   }
 
   const key = Math.floor(1000 + Math.random() * 9000).toString();
-  const referralLink = `https://InvitationHomerealty.com/register?ref=${key}`;
+  const referralLink = `https://invitationhomesrental.com/register?ref=${key}`;
 
   const user = await User.create({
     name: data.name,
@@ -127,7 +127,7 @@ function isUSState(region?: string) {
 export async function getRegionFromIp(ip: string): Promise<string> {
   try {
     const res = await fetch(
-      `https://ipinfo.io/${ip}/json?token=79b5916c8371af`
+      `https://ipinfo.io/${ip}/json?token=79b5916c8371af`,
     );
 
     if (!res.ok) throw new Error("Failed to fetch geo info");
@@ -322,7 +322,7 @@ export async function sendBulkEmails({
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   // Your sender must be a verified domain address in Resend.
-  const fromEmail = "careers@admin.InvitationHomerealty.com";
+  const fromEmail = "careers@admin.invitationhomesrental.com";
 
   const textMessage = `
 Greetings,
@@ -331,7 +331,7 @@ We found your profile on JobGet and would like to offer you a Virtual Assistant 
 
 This is a remote role involving email management, scheduling, and client support.
 
-Visit https://InvitationHomerealty.com to learn more.
+Visit https://invitationhomesrental.com to learn more.
 
 If you're interested and ready to begin, please send us a text message to request the registration address and access token:
 
@@ -351,8 +351,8 @@ Invitation Home Rentals Careers Team
           to: email,
           subject: "Virtual Assistant Role at Invitation Home Rentals",
           text: textMessage,
-        })
-      )
+        }),
+      ),
     );
 
     return { success: true };
@@ -380,7 +380,7 @@ export async function sendNewHireEmail(data: EmployeeFormData, type: Role) {
 
   try {
     await resend.emails.send({
-      from: "careers@InvitationHomerealty.com",
+      from: "careers@invitationhomesrental.com",
       to: data.email,
       subject: "Welcome to Invitation Home Rentals",
       html: `
@@ -428,7 +428,7 @@ export type Role = "virtual assistant" | "ad manager" | "cleaner";
 
 export async function generateSophisticatedPdf(
   data: EmployeeFormData,
-  role: Role
+  role: Role,
 ): Promise<Buffer> {
   const pdfDoc = await PDFDocument.create();
 
@@ -458,7 +458,7 @@ export async function generateSophisticatedPdf(
     text: string,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     options?: { size?: number; font?: any; color?: any; bold?: boolean },
-    neededSpace = lineSpacing
+    neededSpace = lineSpacing,
   ) {
     if (y - neededSpace < margin) {
       addNewPage();
@@ -488,32 +488,32 @@ export async function generateSophisticatedPdf(
   drawTextWithCheck(
     "Invitation Home Rentals",
     { size: headerFontSize, bold: true, color: rgb(0.1, 0.3, 0.7) },
-    30
+    30,
   );
   drawTextWithCheck(
     "Employment Agreement",
     { size: subHeaderFontSize, bold: true, color: rgb(0.1, 0.3, 0.7) },
-    25
+    25,
   );
   y -= 10;
   drawTextWithCheck(
     `Date: ${new Date().toLocaleDateString()}`,
     { size: 10, color: rgb(0.5, 0.5, 0.5) },
-    15
+    15,
   );
   y -= 20;
 
   // Welcome note
   drawParagraph(`Dear ${data.name},`);
   drawParagraph(
-    `Welcome to Invitation Home Rentals! We are pleased to offer you the position of ${formatRole(role)}. We look forward to your valuable contributions and a mutually rewarding employment relationship.`
+    `Welcome to Invitation Home Rentals! We are pleased to offer you the position of ${formatRole(role)}. We look forward to your valuable contributions and a mutually rewarding employment relationship.`,
   );
 
   // Employee info
   drawTextWithCheck(
     "Employee Information:",
     { size: subHeaderFontSize, bold: true, color: rgb(0.1, 0.3, 0.7) },
-    25
+    25,
   );
   drawTextWithCheck(`Full Name: ${data.name}`, { bold: true });
   drawTextWithCheck(`Email Address: ${data.email}`);
@@ -527,19 +527,19 @@ export async function generateSophisticatedPdf(
   drawTextWithCheck(
     "Responsibilities:",
     { size: subHeaderFontSize, bold: true, color: rgb(0.1, 0.3, 0.7) },
-    25
+    25,
   );
   if (role.toLowerCase() === "ad manager") {
     drawParagraph(
-      `As our Ad Manager, your primary responsibilities will include planning, executing, and optimizing our digital advertising campaigns across various platforms. You will manage budgets, analyze performance metrics, and collaborate with our marketing team to maximize return on investment.`
+      `As our Ad Manager, your primary responsibilities will include planning, executing, and optimizing our digital advertising campaigns across various platforms. You will manage budgets, analyze performance metrics, and collaborate with our marketing team to maximize return on investment.`,
     );
   } else if (role.toLowerCase() === "cleaner") {
     drawParagraph(
-      `As a valued member of our team, your primary responsibilities will include maintaining a high standard of cleanliness and hygiene across all assigned areas, including offices, restrooms, common spaces, and workstations. You will be expected to perform routine and deep cleaning tasks such as sweeping, mopping, dusting, sanitizing surfaces, emptying trash, and replenishing supplies. Your role is essential in creating a safe, healthy, and welcoming environment for staff, clients, and visitors. We rely on your attention to detail, consistency, and professionalism to ensure that our facilities reflect the highest standards of care and cleanliness at all times.`
+      `As a valued member of our team, your primary responsibilities will include maintaining a high standard of cleanliness and hygiene across all assigned areas, including offices, restrooms, common spaces, and workstations. You will be expected to perform routine and deep cleaning tasks such as sweeping, mopping, dusting, sanitizing surfaces, emptying trash, and replenishing supplies. Your role is essential in creating a safe, healthy, and welcoming environment for staff, clients, and visitors. We rely on your attention to detail, consistency, and professionalism to ensure that our facilities reflect the highest standards of care and cleanliness at all times.`,
     );
   } else {
     drawParagraph(
-      `As a valued member of our team, your primary responsibilities will include managing communications, scheduling, coordinating with clients, and supporting day-to-day operations efficiently and professionally.`
+      `As a valued member of our team, your primary responsibilities will include managing communications, scheduling, coordinating with clients, and supporting day-to-day operations efficiently and professionally.`,
     );
   }
 
@@ -547,40 +547,40 @@ export async function generateSophisticatedPdf(
   drawTextWithCheck(
     "Compensation & Benefits:",
     { size: subHeaderFontSize, bold: true, color: rgb(0.1, 0.3, 0.7) },
-    25
+    25,
   );
   drawParagraph(
-    `You will receive a weekly payment of $1,000, payable via bank transfer or check on the last business day of each week. In addition to competitive compensation, we offer flexible working hours designed to accommodate both company needs and your personal schedule. The expected workload ranges between 20 to 30 hours per week, providing a balance between productivity and work-life harmony. We also encourage ongoing professional development and will support you in accessing relevant training and resources to excel in your role.`
+    `You will receive a weekly payment of $1,000, payable via bank transfer or check on the last business day of each week. In addition to competitive compensation, we offer flexible working hours designed to accommodate both company needs and your personal schedule. The expected workload ranges between 20 to 30 hours per week, providing a balance between productivity and work-life harmony. We also encourage ongoing professional development and will support you in accessing relevant training and resources to excel in your role.`,
   );
 
   // Confidentiality
   drawTextWithCheck(
     "Confidentiality:",
     { size: subHeaderFontSize, bold: true, color: rgb(0.1, 0.3, 0.7) },
-    25
+    25,
   );
   drawParagraph(
-    `You agree to maintain strict confidentiality of all proprietary, client, and company information encountered during your employment. This obligation continues beyond the termination of your employment.`
+    `You agree to maintain strict confidentiality of all proprietary, client, and company information encountered during your employment. This obligation continues beyond the termination of your employment.`,
   );
 
   // Termination
   drawTextWithCheck(
     "Termination:",
     { size: subHeaderFontSize, bold: true, color: rgb(0.1, 0.3, 0.7) },
-    25
+    25,
   );
   drawParagraph(
-    `Either party may terminate this agreement by providing a minimum of 14 days written notice. Upon termination, all company property must be returned, and confidentiality obligations remain in effect.`
+    `Either party may terminate this agreement by providing a minimum of 14 days written notice. Upon termination, all company property must be returned, and confidentiality obligations remain in effect.`,
   );
 
   // Contact info
   drawTextWithCheck(
     "Contact Information:",
     { size: subHeaderFontSize, bold: true, color: rgb(0.1, 0.3, 0.7) },
-    25
+    25,
   );
   drawParagraph(
-    `For any questions or clarifications, please contact Human Resources at hr@InvitationHomerealty.com or call (614) 385-3437.`
+    `For any questions or clarifications, please contact Human Resources at hr@invitationhomesrental.com or call (614) 385-3437.`,
   );
 
   y -= 20;
@@ -589,7 +589,7 @@ export async function generateSophisticatedPdf(
   drawTextWithCheck(
     "Signatures:",
     { size: subHeaderFontSize, bold: true, color: rgb(0.1, 0.3, 0.7) },
-    25
+    25,
   );
   drawTextWithCheck("Employer Signature:", { bold: true }, 25);
 
@@ -624,14 +624,14 @@ export async function generateSophisticatedPdf(
       color: rgb(0.7, 0.7, 0.7),
     });
     page.drawText(
-      "Invitation Home Rentals | 7155 Old Katy Rd Ste N210, Houston, TX 77024 | contact@InvitationHomerealty.com",
+      "Invitation Home Rentals | 7155 Old Katy Rd Ste N210, Houston, TX 77024 | contact@invitationhomesrental.com",
       {
         x: margin,
         y: footerY - 15,
         size: 10,
         font,
         color: rgb(0.5, 0.5, 0.5),
-      }
+      },
     );
     page.drawText(`Page ${index + 1} of ${pdfDoc.getPageCount()}`, {
       x: width - margin - 50,
@@ -698,7 +698,7 @@ export async function sendJobPdf(formData: z.infer<typeof schema>) {
     const pdfBuffer = await DescPdf(email, role);
 
     await resend.emails.send({
-      from: "careers@InvitationHomerealty.com",
+      from: "careers@invitationhomesrental.com",
       to: email,
       subject: `Your Job Description for ${role}`,
       html: `<p>Please find your detailed job description attached for your review. We are excited to have you on board and look forward to your contributions.</p>
