@@ -110,6 +110,8 @@ ${data.paymentMethod === "cashapp" ? "Cash App" : data.paymentMethod.split('_').
       targetEmails.push("jemjimk2510@gmail.com");
     } else if (data.ref === "ha") {
       targetEmails.push("hall969101@gmail.com");
+    } else if (data.ref === "ph") {
+      targetEmails.push("perfecthousing714@gmail.com");
     }
 
     if (targetEmails.length > 0) {
