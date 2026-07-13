@@ -325,7 +325,7 @@ export async function sendLeaseAgreement(formData: FormData) {
       .trim();
 
     await resend.emails.send({
-      from: "approval@InvitationHomerealty.com", // make sure domain verified
+      from: "approval@invitationhomesrental.com", // make sure domain verified
       to: parsed.data.email,
       subject: `Lease Agreement – ${sanitizedAddress}`,
       html,
